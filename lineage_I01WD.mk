@@ -19,11 +19,8 @@ PRODUCT_RELEASE_NAME := I01WD
 
 $(call inherit-product, build/target/product/embedded.mk)
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-#PRODUCT_COPY_FILES += device/asus/I01WD/kernel:kernel
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/lineage/config/common.mk)
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/asus/I01WD/device.mk)
@@ -31,6 +28,18 @@ $(call inherit-product, device/asus/I01WD/device.mk)
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := I01WD
 PRODUCT_NAME := lineage_I01WD
-PRODUCT_BRAND := Asus
-PRODUCT_MODEL := Asus Zenfone 6
-PRODUCT_MANUFACTURER := Asus
+PRODUCT_BRAND := asus
+PRODUCT_MODEL := I01WD
+PRODUCT_MANUFACTURER := asus
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=ASUS_I01WD \
+    BUILD_PRODUCT=I01WD \
+    TARGET_DEVICE=ASUS_I01WD
+
+PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
+    ro.bootimage.build.date.utc \
+    ro.build.date.utc
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.vendor.build.security_patch=2025-12-31
