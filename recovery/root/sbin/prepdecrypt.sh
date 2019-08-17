@@ -16,6 +16,7 @@ finish()
 	rmdir /v
 	rmdir /s
 	setprop crypto.ready 1
+	setprop prep.decrypt 1
 	exit 0
 }
 

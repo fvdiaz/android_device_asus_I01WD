@@ -298,3 +298,4 @@
 
 # Kmsg device
 /dev/kmsg                                               0620   root       system
+
