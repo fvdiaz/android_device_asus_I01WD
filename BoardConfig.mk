@@ -39,6 +39,8 @@ TARGET_2ND_CPU_VARIANT := cortex-a75
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
 
+TARGET_CPU_ABI_LIST := arm64-v8a,armeabi-v7a,arm64
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := msmnile
 TARGET_NO_BOOTLOADER := true
